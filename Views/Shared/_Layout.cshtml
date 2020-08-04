@@ -15,7 +15,8 @@
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 
     <!--Font Awesome-->
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">   
 
     <!-- Custom fonts for this template -->
     <link href="~/Content/all.min.css" rel="stylesheet" />
@@ -75,22 +76,29 @@
                     <ul class="list-inline text-center">
                         <li class="list-inline-item">
                             <a href="https://twitter.com/richard52297839" target="_blank">
-                                <span class="fa-stack fa-lg">                                    
+                                <span class="fa-stack fa-lg">
                                     <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
                                 </span>
                             </a>
                         </li>
                         <li class="list-inline-item">
                             <a href="https://www.linkedin.com/in/rrichardknott" target="_blank">
-                                <span class="fa-stack fa-lg">                                    
+                                <span class="fa-stack fa-lg">
                                     <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
                                 </span>
                             </a>
                         </li>
                         <li class="list-inline-item">
                             <a href="https://github.com/rrichardknott" target="_blank">
-                                <span class="fa-stack fa-lg">                                    
+                                <span class="fa-stack fa-lg">
                                     <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="https://richardknottportfolio.netlify.app/" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa-inverse" id="footerPortfolio">Portfolio</i>
                                 </span>
                             </a>
                         </li>
@@ -107,7 +115,7 @@
 
     <!-- Custom scripts for this template -->
     <script src="~/Scripts/clean-blog.min.js"></script>
-
+    <script src="~/Scripts/sweetalert.min.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 

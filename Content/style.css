@@ -58,10 +58,14 @@
 /*Home About View*/
 #aboutPage h2{
     text-transform: uppercase;
+    position: relative;
+    left: 35%;
+    padding-bottom: 2%;
 }
 
-#aboutPage p{
+#aboutPage h4{
     text-align: justify;
+    padding-bottom: 2%;
 }
 
 /*Blog Index View*/
@@ -98,7 +102,9 @@
     border-radius: 5%;
     text-decoration: none;
     bottom: 27%;   
-    height: 4.65%;
+    height: 4%;
+    padding-top: 1.15%;
+    padding-bottom: 1.15%;
     line-height: 5%;
     width: 7%;
 }
@@ -119,9 +125,30 @@
     display: none;
 }
 
+/*Contact Me Page*/
+#contactMeContainer, #contactMeContainer hr{
+    width: 50%;
+}
+
+#contactMeContainer hr{
+    position: relative;
+    right: 40%;
+    width: 20%;
+}
+
+#contactMeContainer h4{
+    text-transform: uppercase;
+    position: relative;
+    left: 35%;
+}
+
+#contactMeButton{
+    border-radius: 5%;
+}
+
 /*Blog Details View*/
 #detailsMainNav {
-    padding: 2% 5%;    
+    padding: 2% 5%;  
    
 }
 
@@ -145,18 +172,34 @@
     text-decoration: none;
     text-transform: uppercase;
 }
-
-#detailsNavbarResponsive ul {
+#detailsNavbarResponsive{
     width: 100%;
+    position: relative;
+    
+}
+#detailsNavbarResponsive ul{
+    width: 100%;    
+}
+
+header.masthead{
+   background-color: white;
+   width: 100%;
 }
    
 #detailsBackgroundImage {
-    height: 75vh;
+    height: 50vh;
     width: 100%;
-    position: relative;       
+    position: relative;        
 }
 
-#detailsEditButton, #detailsDeleteButton{
+#detailsBackgroundImageContainer h1, #detailsBackgroundImageContainer h2{
+    text-align: center;
+}
+
+#detailsBackgroundImageContainer h2 {
+    padding-bottom: 2%;
+}
+    #detailsEditButton, #detailsDeleteButton {
     margin-right: 1%;
     width: 10%;
     border-radius: 3%;
@@ -193,6 +236,6 @@ footer{
 }
 
 /*Footer Social Icons*/
-footer .fab:hover{
+footer .fab:hover, footer i:hover{
     color: #0080C4;
 }

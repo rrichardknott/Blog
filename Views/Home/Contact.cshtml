@@ -1,48 +1,49 @@
 ﻿@model Blog.Models.EmailModel
 @{
-    ViewBag.Title = "Contact Me";
+    ViewBag.Title = "";
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    <h4>Send me a message</h4>
-    <hr />
-    @Html.ValidationSummary(" ", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(m => m.FromName, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.FromName, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.FromName)
+<div class="container" id="contactMeContainer">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <h4>Contact Me</h4>
+        
+        @Html.ValidationSummary(" ", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(m => m.FromName, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.FromName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.FromName)
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.FromEmail, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.FromEmail, new { @class = "form-control", placeholder = "example@email.com" })
-            @Html.ValidationMessageFor(m => m.FromEmail)
+        <div class="form-group">
+            @Html.LabelFor(m => m.FromEmail, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.FromEmail, new { @class = "form-control", placeholder = "example@email.com" })
+                @Html.ValidationMessageFor(m => m.FromEmail)
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Subject, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Subject, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.Subject)
+        <div class="form-group">
+            @Html.LabelFor(m => m.Subject, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Subject, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Subject)
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Body, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Body, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.Body)
+        <div class="form-group">
+            @Html.LabelFor(m => m.Body, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Body, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Body)
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-primary" value="Send" />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-primary" id="contactMeButton" value="Send" />
+            </div>
         </div>
-    </div>
-
-}
+        
+    }
+</div>

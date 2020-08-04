@@ -209,6 +209,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Images\blueOrange.jpg" />
+    <Content Include="Images\blueOrange1.jpg" />
     <Content Include="Images\codeScreen.jpg" />
     <Content Include="Images\crossroads.jpg" />
     <Content Include="Images\favicon.png" />
@@ -228,6 +229,7 @@
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\clean-blog.min.js" />
     <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\sweetalert.min.js" />
     <Content Include="Scripts\tinymce\icons\default\icons.js" />
     <Content Include="Scripts\tinymce\icons\default\icons.min.js" />
     <Content Include="Scripts\tinymce\jquery.tinymce.min.js" />
