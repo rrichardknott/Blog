@@ -1,0 +1,37 @@
+﻿@using Blog.Models;
+@model IEnumerable<BlogPost>
+@*@model IEnumerable<Blog.Models.BlogPost>*@
+
+<!-- Main Content -->
+    <div class="container">
+        <div class="row" id="homePageRow">
+
+            @foreach (var post in Model.Take(3))
+            {
+                <div class="col-lg-4 text-center homePageColumns">
+                    <div class="post-preview">
+
+                        <a href=@Url.Action("Details", "BlogPosts", new { slug = post.Slug})>                            
+                            <h2 class="post-title">
+                                <img class="img-responsive" id="blogIndexImage" src="@post.MediaPath" alt="photo" />
+                                @post.Title
+                            </h2>
+                        </a>
+                            <h3 class="post-subtitle">
+                                @post.Abstract
+                            </h3>                        
+                        <p class="post-meta">
+                            Posted by Richard                            
+                            on @post.Created.ToString("MMM dd, yyyy")
+                        </p>
+                    </div>
+                </div>
+            }
+
+            <hr>
+            <!-- Pager -->
+        </div>
+        <button class="btn btn-primary" id="homePageButton">
+            @Html.ActionLink("All Posts", "Index", "BlogPosts") &rarr;
+        </button>
+    </div>
