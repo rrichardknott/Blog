@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Linq;
 using System.Web;
@@ -9,7 +10,7 @@ namespace Blog.Models
 {
       public class BlogPost
       {
-            public int Id { get; set; }
+            public int Id { get; set; }            
             public DateTimeOffset Created { get; set; }
             public DateTimeOffset? Updated { get; set; }
             public string Title { get; set; }

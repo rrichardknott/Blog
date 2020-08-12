@@ -61,11 +61,11 @@ namespace Blog.Controllers
                               return View(new EmailModel());
                         }
                         catch (Exception ex)
-                        {
+                        {                              
                               Console.WriteLine(ex.Message);
                               await Task.FromResult(0);
                         }
-                  }
+                  }                  
                   return View(model);
             }
            

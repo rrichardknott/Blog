@@ -1,6 +1,11 @@
 ﻿body, h1, h2, h3, h4, h5, h6, p, a {
     font-family: 'Garamond', sans-serif;    
 }
+/*applies to any with this class name*/
+.smoothEdges{
+    border-radius: 3%;
+}
+
 
 /*Main Navbar*/
 #mainNav{
@@ -71,14 +76,15 @@
 /*Blog Index View*/
 #blogIndexPageTitleAndSearch h2{
     position: relative;
-    left: 45%;
+    left: 45%;    
 }
 
-#blogIndexPageTitleAndSearch input{
+#blogIndexPageTitleAndSearch input {
     position: absolute;
     bottom: 27%;
     width: 9%;
     right: 20%;
+    height: 4.5%;
 }
 
 #tableBody{
@@ -130,10 +136,10 @@
     width: 50%;
 }
 
-#contactMeContainer hr{
-    position: relative;
-    right: 40%;
-    width: 20%;
+    #contactMeContainer hr {
+        position: relative;
+        right: 40%;
+        width: 20%;
 }
 
 #contactMeContainer h4{
@@ -199,22 +205,20 @@ header.masthead{
 #detailsBackgroundImageContainer h2 {
     padding-bottom: 2%;
 }
-    #detailsEditButton, #detailsDeleteButton {
+#detailsEditButton, #detailsDeleteButton {
     margin-right: 1%;
     width: 10%;
     border-radius: 3%;
 }
 
 /*Comments within Blog Details View*/
-#commentContainer textarea, #commentContainer button {
+#commentContainer textarea, #commentContainer button, #commentContainer h3 {
     position: relative;
-    left: 36%;
-}
-
-#commentContainer button{
+    left: 60%;
     margin-top: 2%;
     margin-bottom: 2%;
 }
+
 /*Comment/Index View*/
 #createCommentButton {
     position: absolute;
@@ -228,8 +232,33 @@ header.masthead{
     width: 10%;
 }
 
-footer{
-    background-color: black;    
+/*Manage Index View - Change Password*/
+#changePasswordButton{
+    border-radius: 3%;
+}
+/*Manage/Change Password*/
+#confirmNewPassword{
+    border-radius: 3%;
+}
+
+/*Login Page*/
+#registerButton, #loginButton{
+    width: 20%;
+}
+
+/*Account/Forgot Password*/
+#forgotPasswordEmailLinkButton{
+    position: relative;
+    right: 1.5%;
+}
+
+#forgotPasswordTextBox{
+    width: 50%!important;
+}
+
+
+footer {
+    background-color: black;
 }
 
 #footerCopy{

@@ -11,7 +11,7 @@
         @using (Html.BeginForm("Index", "BlogPosts", FormMethod.Get, htmlAttributes: new { @class = "form" }))
         {
             <div class="controls controls-row search-row">
-                <input id="searchStr" name="searchStr" class="input-block-level text-right" type="text" placeholder="Find...." />
+                <input id="searchStr" name="searchStr" class="input-block-level text-right" type="text" placeholder="Find...." maxlength="20" />
                 <button id="searchStr" name="searchStr" class="btn btn-success" type="submit">
                     Search
                 </button>
