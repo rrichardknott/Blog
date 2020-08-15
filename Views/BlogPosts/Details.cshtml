@@ -39,7 +39,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="detailsMainNav">
         <div class="container-fluid">
-            <a href="#"><img src="~/Images/richardLogoWhite.png" alt="Alternate Text" class="navbar-brand" href="index.html"/></a>
+            <a href="@Url.Action("Index", "Home")"><img src="~/Images/richardLogoWhite.png" alt="Alternate Text" class="navbar-brand" href="index.html"/></a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <i class="fas fa-bars"></i>
@@ -110,7 +110,7 @@
     }
 
     <!--Comments Display-->
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 @foreach (var comment in Model.Comments)

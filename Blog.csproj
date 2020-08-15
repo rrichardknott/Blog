@@ -208,7 +208,6 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Images\bang!.jpg" />
     <Content Include="Images\blueOrange.jpg" />
     <Content Include="Images\blueOrange1.jpg" />
     <Content Include="Images\codeScreen.jpg" />

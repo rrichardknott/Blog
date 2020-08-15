@@ -3,21 +3,23 @@
 @*@model IEnumerable<Blog.Models.BlogPost>*@
 
 <!-- Main Content -->
-    <div class="container">
+    <div class="container-fluid">
         <div class="row" id="homePageRow">
 
             @foreach (var post in Model.Take(3))
             {
-                <div class="col-lg-4 text-center homePageColumns">
-                    <div class="post-preview">
-
-                        <a href=@Url.Action("Details", "BlogPosts", new { slug = post.Slug})>                            
-                            <h2 class="post-title">
-                                <img class="img-responsive" id="blogIndexImage" src="@post.MediaPath" alt="photo" />
+                <div class="col text-center homePageColumns">
+                    <div class="post-preview" id="homePagePostsWrapper">
+                        
+                        <a href=@Url.Action("Details", "BlogPosts", new { slug = post.Slug})>
+                            <img class="img-responsive" id="blogIndexImage" src="@post.MediaPath" alt="photo" />
+                        </a> 
+                        
+                            <h2>                                
                                 @post.Title
                             </h2>
-                        </a>
-                            <h3 class="post-subtitle">
+                        
+                            <h3>
                                 @post.Abstract
                             </h3>                        
                         <p class="post-meta">

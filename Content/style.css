@@ -1,6 +1,7 @@
 ﻿body, h1, h2, h3, h4, h5, h6, p, a {
     font-family: 'Garamond', sans-serif;    
 }
+
 /*applies to any with this class name*/
 .smoothEdges{
     border-radius: 3%;
@@ -18,7 +19,7 @@
     height: 8vh;    
 }
 #mainNav .navbar-nav>li.nav-item>a{
-    font-size: 18px;
+    font-size: 100%;
     text-decoration: none;
 }
 
@@ -31,28 +32,30 @@
 
 /*Home Page */
 #homePageRow{
-    width: 120%;    
+       
 }
 
 #homePageRow h2:hover{
     color: dodgerblue;
 }
 
-
-.homePageColumns {
+#homePagePostsWrapper{
     
+}
+.homePageColumns {
+    /*right: 8%;*/    
     margin-bottom: 2%;
     padding-top: 2%;
     position: relative;
-    right: 8%;
 }
 
-#homePageButton{
+#homePageButton {
     background-color: dodgerblue;
     position: relative;
     margin-bottom: 2%;
-    border-radius: 3%;    
-    left: 42%;
+    border-radius: 3%;
+    margin: auto 0;
+    left: 45%;
 }
 
 #homePageButton a {
@@ -115,10 +118,13 @@
     width: 7%;
 }
 #blogIndexImage {
-    width: 20vw;
+    width: 80%;
     border-radius: 2%;
     margin-bottom: 3%;
+    
 }
+
+
 
 #blogIndexTable{    
     position: relative;
@@ -268,4 +274,256 @@ footer {
 /*Footer Social Icons*/
 footer .fab:hover, footer i:hover{
     color: #0080C4;
+}
+
+footer{
+    margin-top: 3%;
+}
+
+/*=======================MEDIA QUERIES=============================*/
+/* Extra small devices (phones, 599px and down) */
+@media only screen and (max-width: 599px) {
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 100%;
+    }
+
+    #blogIndexImage {
+        width: 100%;
+    }
+
+    #homePageButton {
+        left: 28%;
+    }
+
+    #loginButton, #registerButton, #forgotPasswordButton {
+        border-radius: 3%;
+        width: 100%;
+        margin-bottom: 2%;
+    }
+
+    #createButton{
+        bottom: 4.75%;
+        width: 30%;       
+        height: 5.5%;
+        line-height: 5%;
+        left: 1%;
+        padding-top: 5%;
+    }
+
+    #blogIndexPageTitleAndSearch button{
+        bottom: 5%;
+        right: 1%;
+        width: 30%;
+    }
+
+    #blogIndexPageTitleAndSearch input {
+        bottom: 0; 
+        width: 30%;
+        right: 1%;    
+    }
+
+    #blogIndexPageTitleAndSearch h2 {
+        display: none;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px to 767) */
+@media only screen and (min-width: 600px) and (max-width: 767px){
+    #homePageButton {
+        left: 38%;
+    }
+
+    h1 {
+      font-size: 120%;
+    }
+    h2 {
+        font-size: 110%;
+    }
+    h3 {
+        font-size: 100%;
+    }
+    h4 {
+        font-size: 90%;
+    }
+    h5 {
+        font-size: 80%;
+    }
+    h6 {
+        font-size: 70%;
+    }
+
+    #blogIndexImage {
+        width: 100%;
+    }
+
+    #loginButton, #registerButton, #forgotPasswordButton {
+        border-radius: 3%;
+        width: 100%;
+        margin-bottom: 2%;
+    }
+    #createButton {
+        bottom: 30%;
+        width: 20%;
+        height: 4.5%;
+        line-height: 4.5%;
+        left: 1%;
+        padding: 3%;
+    }
+
+    #blogIndexPageTitleAndSearch button {
+        bottom: 30%;
+        right: 1%;
+        width: 20%;
+    }
+
+    #blogIndexPageTitleAndSearch input {
+        bottom: 25%;
+        width: 20%;
+        right: 1%;
+    }
+
+}
+        
+        
+        
+/* Medium devices (landscape tablets, 768px to 991px) */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    #homePageButton {
+        left: 38%;
+    }
+
+    h1 {
+        font-size: 120%;
+    }
+
+    h2 {
+        font-size: 110%;
+    }
+
+    h3 {
+        font-size: 100%;
+    }
+
+    h4 {
+        font-size: 90%;
+    }
+
+    h5 {
+        font-size: 80%;
+    }
+
+    h6 {
+        font-size: 70%;
+    }
+
+    #blogIndexImage {
+        width: 100%;
+    }
+
+    #loginButton, #registerButton, #forgotPasswordButton {
+        border-radius: 3%;
+        width: 100%;
+        margin-bottom: 2%;
+    }
+    #createButton {
+        bottom: 30%;
+        width: 20%;
+        height: 4.5%;
+        line-height: 4.5%;
+        left: 1%;
+        padding: 3%;
+    }
+
+    #blogIndexPageTitleAndSearch button {
+        bottom: 30%;
+        right: 1%;
+        width: 20%;
+    }
+
+    #blogIndexPageTitleAndSearch input {
+        bottom: 25%;
+        width: 20%;
+        right: 1%;
+    }
+
+}
+        
+        
+        
+/* Large devices (laptops/desktops, 992px to 1199px) */
+@media only screen and (min-width: 992px) and (max-width: 1199px){
+    #homePageButton {
+        left: 38%;
+    }
+
+    h1 {
+        font-size: 120%;
+    }
+
+    h2 {
+        font-size: 110%;
+    }
+
+    h3 {
+        font-size: 100%;
+    }
+
+    h4 {
+        font-size: 90%;
+    }
+
+    h5 {
+        font-size: 80%;
+    }
+
+    h6 {
+        font-size: 70%;
+    }
+
+    #blogIndexImage {
+        width: 100%;
+    }
+
+    #loginButton, #registerButton, #forgotPasswordButton {
+        border-radius: 3%;
+        width: 100%;
+        margin-bottom: 2%;
+    }
+
+    #mainNav img{
+        width: 70%;
+        height: 70%;
+    }
+    #mainNav .navbar-nav > li.nav-item > a{
+        font-size: 100%;
+    }
+
+    #createButton {
+        bottom: 48%;
+        width: 20%;
+        height: 4.5%;
+        line-height: 4.5%;
+        left: 1%;
+        padding: 3%;
+    }
+
+    #blogIndexPageTitleAndSearch button {
+        bottom: 48%;
+        right: 1%;
+        width: 20%;
+    }
+
+    #blogIndexPageTitleAndSearch input {
+        bottom: 43%;
+        width: 20%;
+        right: 1%;
+    }
+
+}
+       
+        
+        
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    
 }

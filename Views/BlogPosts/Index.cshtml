@@ -41,7 +41,7 @@
                 @Html.DisplayName("Title")
             </th>
             <th>
-                @Html.DisplayName("Abstract")
+                @Html.DisplayName("Sub-title")
             </th>
             <th class="hidden">
                 @Html.DisplayName("Slug")
@@ -77,7 +77,14 @@
             @Html.DisplayFor(modelItem => item.Slug)
         </td>
         <td id="tableBody">
-            @Html.Raw(item.Body)          
+            @*@Html.Raw(item.Body);*@
+            @Html.Raw(item.Body.Substring(0, Math.Min(item.Body.Length, 350)))
+            @Html.ActionLink("...read more", "Details", new { slug = item.Slug }, new { style = "color:blue; text-decoration:none" })
+            <div>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </div>
+           
         </td>
         <td class="hidden">
             @Html.DisplayFor(modelItem => item.MediaPath)
@@ -90,12 +97,7 @@
             {
                 <img class="img-responsive" id="blogIndexImage" src="@item.MediaPath" alt="photo" />
             }
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
-            @Html.ActionLink("Details", "Details", new { slug = item.Slug })
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-        </td>
+        </td>       
     </tr>
         }
 
