@@ -204,7 +204,11 @@ header.masthead{
     position: relative;        
 }
 
-#detailsBackgroundImageContainer h1, #detailsBackgroundImageContainer h2{
+#detailsBackgroundImageContainer{
+    width: 80%;
+}
+
+#detailsBackgroundImageContainer h1, #detailsBackgroundImageContainer h2 {
     text-align: center;
 }
 
