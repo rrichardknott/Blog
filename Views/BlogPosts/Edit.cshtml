@@ -8,7 +8,7 @@
     <h2>Edit</h2>
 
 
-    @using (Html.BeginForm("Edit", "BlogPosts", FormMethod.Post, new { enctype = "Multipart/form-data" }))
+    @using (Html.BeginForm("Edit", "BlogPosts", FormMethod.Post, new { enctype = "Multipart/form-data", @class="width300 " }))
     {
         @Html.AntiForgeryToken()
 
@@ -19,8 +19,9 @@
     @Html.HiddenFor(model => model.Id)
     @Html.HiddenFor(model => model.Slug)
     @Html.HiddenFor(model => model.Created)
+    @Html.HiddenFor(model => model.MediaPath)
 
-    <div class="row">
+    <div class="row ">
 
     </div>
 
@@ -74,7 +75,7 @@
         @Html.LabelFor(model => model.Body, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-4">
             @Html.EditorFor(model => model.Body, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger"})
         </div>
     </div>
 

@@ -100,8 +100,13 @@
                         <div class="row">
                             @Html.TextArea("CommentBody", new { rows = 4, cols = 50 })
                         </div>
-                        <div class="row">
-                            <button class="btn btn-primary" id="submitCommentButton" type="submit">Submit</button>
+                        <div id="blogDetailsSubmitAndBackButtonContainer">
+                            <div class="row">
+                                <button class="btn btn-primary" id="submitCommentButton" type="submit">Submit</button>
+                            </div>
+                            <div class="row">
+                                @Html.ActionLink("Back", "Index", "BlogPosts", null, new { @class = "btn btn-primary", id = "detailsBackButton" })
+                            </div>
                         </div>
                     }
                 </div>
@@ -112,7 +117,7 @@
     <!--Comments Display-->
     <div class="container">
         <div class="row">
-            <div class="col-md-10 col-md-offset-1">
+            <div class="col-md-10 col-md-offset-1" id="blogDetailsEditDeleteBackButtonContainer">
                 @foreach (var comment in Model.Comments)
                 {
                     <p id="comment-@comment.Id">@Html.Raw(comment.Body)</p>
@@ -125,6 +130,7 @@
                         @Html.ActionLink("Edit", "Edit", "Comments", new { id = comment.Id }, new { @class = "btn btn-primary", id = "detailsEditButton" })
                         @Html.ActionLink("Delete", "Delete", "Comments", new { id = comment.Id }, new { @class = "btn btn-danger", id = "detailsDeleteButton" })
                     }
+                    @Html.ActionLink("Back", "Index", "BlogPosts", null, new { @class = "btn btn-primary", id = "detailsEditButton" })
                     <hr />
                 }
             </div>

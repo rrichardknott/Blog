@@ -160,7 +160,7 @@
 
 /*Blog Details View*/
 #detailsMainNav {
-    padding: 2% 5%;  
+    padding: 2% 10%;  
    
 }
 
@@ -215,14 +215,45 @@ header.masthead{
 #detailsBackgroundImageContainer h2 {
     padding-bottom: 2%;
 }
+
+#blogDetailsEditDeleteBackButtonContainer{
+    
+}
 #detailsEditButton, #detailsDeleteButton {
     margin-right: 1%;
     width: 10%;
     border-radius: 3%;
 }
 
+#blogDetailsSubmitAndBackButtonContainer{
+    position: absolute;
+    display:flex;
+    justify-content: flex-start;
+    left: 62.75%;
+   
+}
+
+#submitCommentButton{
+    margin-right: 40px;
+}
+
+#detailsBackButton {
+    width: 100%;
+}
+
+/*Blog / Edit*/
+.width300{
+    width: 300%;
+    
+}
+
+
 /*Comments within Blog Details View*/
-#commentContainer textarea, #commentContainer button, #commentContainer h3 {
+#commentContainer {
+    margin-bottom: 3%;
+}
+
+#commentContainer textarea, #commentContainer h3 {
     position: relative;
     left: 60%;
     margin-top: 2%;

@@ -11,26 +11,13 @@ namespace Blog
       {
             public static void RegisterRoutes(RouteCollection routes)
             {
-                  routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
-                  //More specific
-                  routes.MapRoute(
-                     name: "DetailRoute",
-                     url: "Blog/Details/{slug}",
-                     defaults: new
-                     {
-                           controller = "BlogPosts",
-                           action = "Details",
-                           slug = UrlParameter.Optional
-                     });
-
-
-                  //Less specific 
-                  routes.MapRoute(
-                      name: "Default",
-                      url: "{controller}/{action}/{id}",
-                      defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-                  );
+                routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+                
+                routes.MapRoute(
+                    name: "Default",
+                    url: "{controller}/{action}/{id}",
+                    defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                );                  
 
                 
 

@@ -3,7 +3,7 @@
 @model IPagedList<Blog.Models.BlogPost>
 
 @{
-    ViewBag.Title = "Index";
+    
 }
 <div class="container-fluid" id="blogIndexPageTitleAndSearch">
     <div class="row">
@@ -23,7 +23,7 @@
 <p>
     @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
     {
-        @Html.ActionLink("Create", "Create", null, new { @class = "btn btn-primary", id="createButton"})
+        @Html.ActionLink("Create", "Create", null, new { @class = "btn btn-primary", id = "createButton" })
     }
 </p>
 
@@ -37,18 +37,18 @@
             <th class="hidden">
                 @Html.DisplayName("Updated")
             </th>
-            <th>
+            <th class="">
                 @Html.DisplayName("Title")
             </th>
-            <th>
+            <th class="hidden">
                 @Html.DisplayName("Sub-title")
             </th>
             <th class="hidden">
                 @Html.DisplayName("Slug")
-            </th>
+            </th>          
             <th>
                 @Html.DisplayName("Body")
-            </th>
+            </th>            
             <th class="hidden">
                 @Html.DisplayName("MediaPath")
             </th>
@@ -70,7 +70,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.Title)
         </td>
-        <td>
+        <td class="hidden">
             @Html.DisplayFor(modelItem => item.Abstract)
         </td>
         <td class="hidden">

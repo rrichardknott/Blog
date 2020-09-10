@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Blog.Models;
+using System.Net.Mail;
 
 namespace Blog.Controllers
 {
@@ -163,17 +164,39 @@ namespace Blog.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                    string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code }, protocol: Request.Url.Scheme);
+                    try
+                    {
+                        var from = "Richlylynn Bug Tracker Admin<admin@RichardsBlog.com>";
+                        var email = new MailMessage(from, model.Email)
+                        {
+                            Subject = "Confirm your email.",
+                            Body = $"Hello {model.FirstName}, please click <a href =\"" + callbackUrl + "\">here</a> to confirm your email address and complete your registration.",
+                            IsBodyHtml = true
+                        };
+                        var svc = new EmailService();
+                        await svc.SendAsync(email);
 
-                    return RedirectToAction("Index", "Home");
+
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                        await Task.FromResult(0);
+                    }
+
+
+                    await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+
+                    return RedirectToAction("Login", "Account");
                 }
                 AddErrors(result);
+
             }
 
             // If we got this far, something failed, redisplay form
@@ -198,7 +221,8 @@ namespace Blog.Controllers
         [AllowAnonymous]
         public ActionResult ForgotPassword()
         {
-            return View();
+            var userModel = new ForgotPasswordViewModel();
+            return View(userModel);
         }
 
         //
@@ -217,12 +241,31 @@ namespace Blog.Controllers
                     return View("ForgotPasswordConfirmation");
                 }
 
-                // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
-                // Send an email with this link
-                // string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
-                // var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);		
-                // await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
-                // return RedirectToAction("ForgotPasswordConfirmation", "Account");
+                // For more information on how to enable account confirmation and password reset please visit //go.microsoft.com/fwlink/?LinkID=320771 // Send an email with this link
+                string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
+                var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+
+
+                try
+                {
+                    var from = "Bug Tracker<r.richardknott@gmail.com>";
+
+                    var email = new MailMessage(from, model.Email)
+                    {
+                        Subject = "Reset Password",
+                        Body = "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>",
+                        IsBodyHtml = true
+                    };
+                    var svc = new EmailService();
+                    await svc.SendAsync(email);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    await Task.FromResult(0);
+                }
+
+                return RedirectToAction("ForgotPasswordConfirmation", "Account");
             }
 
             // If we got this far, something failed, redisplay form
