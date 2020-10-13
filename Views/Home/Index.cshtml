@@ -11,7 +11,7 @@
                 <div class="col text-center homePageColumns">
                     <div class="post-preview" id="homePagePostsWrapper">
                         
-                        <a href=@Url.Action("Details", "BlogPosts", new { slug = post.Slug})>
+                        <a href=@Url.Action("Details", "BlogPosts", new { slug = post.Slug })>
                             <img class="img-responsive" id="blogIndexImage" src="@post.MediaPath" alt="photo" />
                         </a> 
                         
@@ -34,6 +34,6 @@
             <!-- Pager -->
         </div>
         <button class="btn btn-primary" id="homePageButton">
-            @Html.ActionLink("All Posts", "Index", "BlogPosts") &rarr;
+            @Html.ActionLink("All Posts", "Index", "BlogPosts", null, new { @class = "colorBlack", id = "homePageLink" }) &rarr;
         </button>
     </div>

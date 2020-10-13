@@ -80,10 +80,13 @@
             @*@Html.Raw(item.Body);*@
             @Html.Raw(item.Body.Substring(0, Math.Min(item.Body.Length, 350)))
             @Html.ActionLink("...read more", "Details", new { slug = item.Slug }, new { style = "color:blue; text-decoration:none" })
-            <div>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-            </div>
+            @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
+            {
+                <div>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </div>
+            }
            
         </td>
         <td class="hidden">

@@ -2,7 +2,18 @@
     font-family: 'Garamond', sans-serif;    
 }
 
-/*applies to any with this class name*/
+.colorWhite{
+    color: white;
+}
+
+.colorBlack{
+    color: black;
+}
+
+.noDecoration{
+    text-decoration: none;
+}
+
 .smoothEdges{
     border-radius: 3%;
 }
@@ -32,7 +43,9 @@
 
 /*Home Page */
 #homePageRow{
-       
+   position: relative;
+   bottom: 100px;
+   height: 450px;
 }
 
 #homePageRow h2:hover{
@@ -50,17 +63,21 @@
 }
 
 #homePageButton {
-    background-color: dodgerblue;
+    background-color: #ffffff;
+    color: black;
+    border: 2px solid black;
+    border-radius: 5%;    
     position: relative;
-    margin-bottom: 2%;
-    border-radius: 3%;
-    margin: auto 0;
-    left: 45%;
+    margin-top: 5%;
+    margin-bottom: 2%; 
+    margin-left: 45%;    
+    
 }
 
-#homePageButton a {
-    color: #FFFFFF;
-    text-decoration: none;
+
+
+#homePageLink {
+   text-decoration: none!important;    
 }
 
 /*Home About View*/
@@ -161,6 +178,7 @@
 /*Blog Details View*/
 #detailsMainNav {
     padding: 2% 10%;  
+    position: absolute;
    
 }
 
@@ -300,6 +318,7 @@ header.masthead{
 
 footer {
     background-color: black;
+    margin-top: 3%;
 }
 
 #footerCopy{
@@ -311,9 +330,7 @@ footer .fab:hover, footer i:hover{
     color: #0080C4;
 }
 
-footer{
-    margin-top: 3%;
-}
+
 
 /*=======================MEDIA QUERIES=============================*/
 /* Extra small devices (phones, 599px and down) */
