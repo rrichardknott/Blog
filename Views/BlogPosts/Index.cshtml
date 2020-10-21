@@ -8,9 +8,9 @@
 <div class="container-fluid" id="blogIndexPageTitleAndSearch">
     <div class="row">
         <h2 class="text-uppercase">All Posts</h2>
-        @using (Html.BeginForm("Index", "BlogPosts", FormMethod.Get, htmlAttributes: new { @class = "form" }))
+        @using (Html.BeginForm("Index", "BlogPosts", FormMethod.Get, htmlAttributes: new { @class = "form", id="blogPostsIndexForm" }))
         {
-            <div class="controls controls-row search-row">
+            <div class="controls controls-row search-row" id="blogIndexSearchInputAndButtonRow">
                 <input id="searchStr" name="searchStr" class="input-block-level text-right" type="text" placeholder="Find...." maxlength="20" />
                 <button id="searchStr" name="searchStr" class="btn btn-success" type="submit">
                     Search

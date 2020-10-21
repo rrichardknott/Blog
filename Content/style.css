@@ -99,27 +99,31 @@
     left: 45%;    
 }
 
-#blogIndexPageTitleAndSearch input {
-    position: absolute;
-    bottom: 27%;
-    width: 9%;
-    right: 20%;
-    height: 4.5%;
+#blogPostsIndexForm{
+    width: 100%;
+
 }
 
-#tableBody{
-    width: 50%;
-    text-align: justify;
+#blogIndexSearchInputAndButtonRow {    
+    text-align: right;
+    width: 90%;
+    position: relative;
+    top: -30px;
 }
 
 #blogIndexPageTitleAndSearch button {
-    position: absolute;
-    width: 7%;
-    height: 4.65%;
-    right: 12%;
-    line-height: 5%;
-    border-radius: 5%;
-    bottom: 27%;
+   border-radius: 5px;
+   font-weight: 200;
+   padding: 8px 15px;
+}
+
+#blogIndexPageTitleAndSearch input{
+    padding-bottom: 4px;
+}
+
+#tableBody {
+    width: 50%;
+    text-align: justify;
 }
 
 #createButton{
