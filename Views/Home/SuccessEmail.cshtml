@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "SuccessEmail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+        <div class="successEmailGrid">
+            <h2 class="text-success mb-2">Your message was successfully received.</h2>
+            <h3 id="respondText">I usually respond to all emails within 24-hours if not sooner.</h3>
+            @Html.ActionLink("Back To Homepage", "Index", "Home", null, htmlAttributes: new { @class="btn btn-primary", id="successEmailHomeButton"})
+        </div>
+    

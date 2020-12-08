@@ -13,12 +13,257 @@ body, h1, h2, h3, h4, h5, h6, p, a {
     color: black;
 }
 
+.displayFlex {
+    display: flex;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.backgroundBlack {
+    background-color: black;
+}
+
+.backgroundCharcoal {
+    background-color: #303030;
+}
+
+.backgroundWhite {
+    background-color: white;
+}
+
+.backgroundDarkBlue {
+    background-color: #00008b;
+}
+
+.backgroundGreen {
+    background-color: green;
+}
+
+.backgroundRed {
+    background-color: darkred
+}
+
+.backgroundGoldenRod {
+    background-color: goldenrod;
+}
+
+.backgroundYellow {
+    background-color: yellow;
+}
+
+.backgroundPurple {
+    background-color: #663399;
+}
+
+.backgroundLightGray {
+    background-color: lightgray;
+}
+
+.colorBlack {
+    color: black;
+}
+
+.colorWhite {
+    color: white;
+}
+
+.colorDarkBlue {
+    color: #00008b;
+}
+
+.colorBrightRed {
+    color: #E10600;
+}
+
+.colorDarkRed {
+    color: darkred;
+}
+
+.colorGoldenRod {
+    color: goldenrod;
+}
+
+.colorYellow {
+    color: yellow;
+}
+
+.colorGreen {
+    color: #28A745;
+}
+
+.colorDarkGreen {
+    color: darkgreen;
+}
+
+.colorBrightGreen {
+    color: #66FF00;
+}
+
+table {
+    border: 1px solid black !important;
+    font-family: 'Garamond', cursive !important;
+}
+
+thead {
+    background-color: lightgray;
+}
+
+th, td {
+    border: 1px solid black !important;
+}
+
+.fadedBlack {
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.fadedCharcoal {
+    background-color: rgba(48, 48, 48, .7);
+}
+
+.fadedWhite {
+    background-color: rgba(255, 255, 255, .7);
+}
+
+.fadedGreen {
+    background-color: rgba(0, 77, 77, .6);
+}
+
+.width-7 {
+    width: 7%;
+}
+
+.width-8 {
+    width: 8%;
+}
+
+.width-9 {
+    width: 9%;
+}
+
+.width-10 {
+    width: 10%;
+}
+
+.width-18 {
+    width: 18%;
+}
+
+.width-20 {
+    width: 20%;
+}
+
+.width-30 {
+    width: 30%;
+}
+
+.width-40 {
+    width: 40%;
+}
+
+.width-50 {
+    width: 50%;
+}
+
+.width-60 {
+    width: 60%;
+}
+
+.width-70 {
+    width: 70%;
+}
+
+.width-80 {
+    width: 80%;
+}
+
+.width-90 {
+    width: 90%;
+}
+
+.width-100 {
+    width: 100%;
+}
+
+.w-250px {
+    width: 250px !important;
+}
+
+.w-300px{
+    width: 300px !important;
+}
+
+.height30 {
+    height: 30px;
+}
+
+.marginTop60 {
+    margin-top: 60px;
+}
+
+.listStyleTypeNone {
+    list-style-type: none;
+}
+
+.textDecorationUnderline {
+    text-decoration: underline;
+}
+
+.textDecorationNone {
+    text-decoration: none;
+}
+
+.displayFlex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.displayFlexColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.flexStart {
+    justify-content: flex-start;
+}
+
+.flexEnd {
+    justify-content: flex-end;
+}
+
+.displayNone {
+    display: none;
+}
+
+.borderWhite {
+    border: 1px solid #ffffff !important;
+}
+
+.borderBlack {
+    border: 1px solid black !important;
+}
+
+.smoothEdges {
+    border-radius: 5px;
+}
+
+
+body #mainLayoutBody {
+    padding-left: 0;
+    padding-right: 0;
+}
+
 .noDecoration{
     text-decoration: none;
 }
 
 .smoothEdges{
     border-radius: 3%;
+}
+
+.centerIt{
+    margin: 0 auto!important;
 }
 
 /*Layout*/
@@ -106,17 +351,14 @@ footer .footerContainer {
 }
 
 /*Home About View*/
-#aboutPage h2{
+.centerIt h2{
     text-transform: uppercase;
-    position: relative;
-    left: 35%;
-    padding-bottom: 2%;
+    width: 100%;
+    text-align: center;
+    
 }
 
-#aboutPage h4{
-    text-align: justify;
-    padding-bottom: 2%;
-}
+
 
 /*Blog Index View*/
 .blogPostIndexCreateSearchGrid {
@@ -185,16 +427,12 @@ footer .footerContainer {
 }
 
 /*Contact Me Page*/
-#contactMeContainer, #contactMeContainer hr{
+#contactMeContainer
     width: 50%;
+    margin: 0 auto;
 }
 
-    #contactMeContainer hr {
-        position: relative;
-        right: 40%;
-        width: 20%;
-}
-
+  
 #contactMeContainer h4{
     text-transform: uppercase;
     position: relative;
@@ -203,6 +441,39 @@ footer .footerContainer {
 
 #contactMeButton{
     border-radius: 5%;
+}
+
+/*Home/SuccessEmail View*/
+.successEmailGrid{
+    display: grid;
+    grid-template-columns: repeat(3, 4fr);
+    grid-template-rows: repeat(3, auto);
+    text-align: center;
+    position:relative;
+    bottom: 70px;
+    
+    
+}
+
+.successEmailGrid h2{    
+    grid-column: 2 / 3;
+    grid-row: 1;
+}
+
+.successEmailGrid #respondText {
+    
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    
+}
+
+.successEmailGrid #successEmailHomeButton {
+    
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+    width: 220px;
+    margin: 0 auto;
+    border-radius: 5px;
 }
 
 /*Blog Details View*/
@@ -451,6 +722,12 @@ footer .fab:hover, footer i:hover{
         grid-template-rows: repeat(3, auto);
         text-align: center;
     }
+
+    /*Contact View Page*/
+    .contactFieldWidth{
+        width: 350px;
+    }
+    
 }
 
 /* Small devices (portrait tablets and large phones, 600px to 767) */
@@ -517,6 +794,11 @@ footer .fab:hover, footer i:hover{
         grid-template-columns: repeat(1, 12fr);
         grid-template-rows: repeat(3, auto);
         text-align: center;
+    }
+
+    /*Contact View Page*/
+    .contactFieldWidth {
+        width: 350px;
     }
 
 }

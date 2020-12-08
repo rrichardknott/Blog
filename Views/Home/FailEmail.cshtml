@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "FailEmail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <h3>@ViewBag.ErrorMessage</h3>
+}
+
+
+<div class="failEmailGrid">
+    <h2 class="text-danger mb-2">Unfortunately, an error occured and your message was not received.</h2>
+    <h3 id="respondText">Please click the button below to try again.</h3>
+    @Html.ActionLink("Back To Contact Page", "Contact", "Home", null, htmlAttributes: new { @class = "btn btn-primary", id = "successEmailHomeButton" })
+</div>
+
+
