@@ -1,6 +1,9 @@
-﻿body, h1, h2, h3, h4, h5, h6, p, a {
+﻿
+
+body, h1, h2, h3, h4, h5, h6, p, a {
     font-family: 'Garamond', sans-serif;    
 }
+
 
 .colorWhite{
     color: white;
@@ -16,6 +19,24 @@
 
 .smoothEdges{
     border-radius: 3%;
+}
+
+/*Layout*/
+footer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;  
+    min-height:150px;    
+    min-width: 100%;   
+    position: relative;
+    
+    
+}
+
+footer .footerContainer {
+    grid-column: 2;
+    grid-row: 1;
+    
 }
 
 
@@ -43,6 +64,11 @@
 
 /*Home Page */
 #homePageRow{
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   grid-template-rows: repeat(1, auto);
+
+
    position: relative;
    bottom: 100px;
    height: 450px;
@@ -68,9 +94,8 @@
     border: 2px solid black;
     border-radius: 5%;    
     position: relative;
-    margin-top: 5%;
-    margin-bottom: 2%; 
-    margin-left: 45%;    
+    width: 50%;
+    margin: 0 auto;
     
 }
 
@@ -94,10 +119,20 @@
 }
 
 /*Blog Index View*/
-#blogIndexPageTitleAndSearch h2{
-    position: relative;
-    left: 45%;    
+.blogPostIndexCreateSearchGrid {
+    display: grid;
+    grid-template-columns: 4fr 4fr 4fr;
+    grid-template-rows: repeat(1, auto);
+    text-align: center;
 }
+.blogPostGrid {
+    display: grid;
+    grid-template-columns: repeat(1, 12fr);
+    grid-template-rows: repeat(4, auto);
+}
+
+
+
 
 #blogPostsIndexForm{
     width: 100%;
@@ -105,10 +140,7 @@
 }
 
 #blogIndexSearchInputAndButtonRow {    
-    text-align: right;
-    width: 90%;
-    position: relative;
-    top: -30px;
+    
 }
 
 #blogIndexPageTitleAndSearch button {
@@ -126,17 +158,11 @@
     text-align: justify;
 }
 
-#createButton{
-    position: absolute;
-    left: 8%;
+
+
+#createButton {
     border-radius: 5%;
     text-decoration: none;
-    bottom: 27%;   
-    height: 4%;
-    padding-top: 1.15%;
-    padding-bottom: 1.15%;
-    line-height: 5%;
-    width: 7%;
 }
 #blogIndexImage {
     width: 80%;
@@ -334,12 +360,46 @@ footer .fab:hover, footer i:hover{
     color: #0080C4;
 }
 
+/*MY VIEW (blogposts/myview*/
+.myViewAllBlogPostGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, auto);
+    
+}
+
+.myViewAllBlogPostSubGrid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(3, auto);  
+    padding: 15px;   
+}
+
+#myViewAllBlogPostSubGridTitle{
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#myViewAllBlogPostSubGridBody{
+    width: 80%;
+    margin: 0 auto;
+}
+
+#myViewAllBlogPostSubGridCreated {
+    font-size: 18px;
+    font-style: italic;
+    margin-top: 0;
+    color: #868e96;
+}
+
+
+
 
 
 /*=======================MEDIA QUERIES=============================*/
 /* Extra small devices (phones, 599px and down) */
 @media only screen and (max-width: 599px) {
-    h1, h2, h3, h4, h5, h6 {
+    h1, h2, h3, h4, h5, h6 {<img class="img-responsive" id="blogIndexImage" src="/Uploads/keyFit.jpg" alt="photo">
         font-size: 100%;
     }
 
@@ -347,24 +407,14 @@ footer .fab:hover, footer i:hover{
         width: 100%;
     }
 
-    #homePageButton {
-        left: 28%;
-    }
+    
 
     #loginButton, #registerButton, #forgotPasswordButton {
         border-radius: 3%;
         width: 100%;
         margin-bottom: 2%;
     }
-
-    #createButton{
-        bottom: 4.75%;
-        width: 30%;       
-        height: 5.5%;
-        line-height: 5%;
-        left: 1%;
-        padding-top: 5%;
-    }
+    
 
     #blogIndexPageTitleAndSearch button{
         bottom: 5%;
@@ -381,13 +431,31 @@ footer .fab:hover, footer i:hover{
     #blogIndexPageTitleAndSearch h2 {
         display: none;
     }
+
+    .myViewAllBlogPostGrid {
+        display: grid;
+        grid-template-columns: repeat(1, 12fr);
+        grid-template-rows: repeat(3, auto);
+    }
+
+    .myViewAllBlogPostSubGrid {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(3, auto);
+        padding: 15px;
+    }
+
+    .blogPostIndexCreateSearchGrid {
+        display: grid;
+        grid-template-columns: repeat(1, 12fr);
+        grid-template-rows: repeat(3, auto);
+        text-align: center;
+    }
 }
 
 /* Small devices (portrait tablets and large phones, 600px to 767) */
 @media only screen and (min-width: 600px) and (max-width: 767px){
-    #homePageButton {
-        left: 38%;
-    }
+    
 
     h1 {
       font-size: 120%;
@@ -417,14 +485,7 @@ footer .fab:hover, footer i:hover{
         width: 100%;
         margin-bottom: 2%;
     }
-    #createButton {
-        bottom: 30%;
-        width: 20%;
-        height: 4.5%;
-        line-height: 4.5%;
-        left: 1%;
-        padding: 3%;
-    }
+    
 
     #blogIndexPageTitleAndSearch button {
         bottom: 30%;
@@ -438,15 +499,33 @@ footer .fab:hover, footer i:hover{
         right: 1%;
     }
 
+    .myViewAllBlogPostGrid {
+        display: grid;
+        grid-template-columns: repeat(1, 12fr);
+        grid-template-rows: repeat(3, auto);
+    }
+
+    .myViewAllBlogPostSubGrid {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(3, auto);
+        padding: 15px;
+    }
+
+    .blogPostIndexCreateSearchGrid {
+        display: grid;
+        grid-template-columns: repeat(1, 12fr);
+        grid-template-rows: repeat(3, auto);
+        text-align: center;
+    }
+
 }
         
         
         
 /* Medium devices (landscape tablets, 768px to 991px) */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-    #homePageButton {
-        left: 38%;
-    }
+    
 
     h1 {
         font-size: 120%;
@@ -481,14 +560,7 @@ footer .fab:hover, footer i:hover{
         width: 100%;
         margin-bottom: 2%;
     }
-    #createButton {
-        bottom: 30%;
-        width: 20%;
-        height: 4.5%;
-        line-height: 4.5%;
-        left: 1%;
-        padding: 3%;
-    }
+   
 
     #blogIndexPageTitleAndSearch button {
         bottom: 30%;
@@ -502,15 +574,33 @@ footer .fab:hover, footer i:hover{
         right: 1%;
     }
 
+    .myViewAllBlogPostGrid {
+        display: grid;
+        grid-template-columns: repeat(1, 12fr);
+        grid-template-rows: repeat(3, auto);
+    }
+
+    .myViewAllBlogPostSubGrid {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(3, auto);
+        padding: 15px;
+    }
+
+    .blogPostIndexCreateSearchGrid {
+        display: grid;
+        grid-template-columns: repeat(1, 12fr);
+        grid-template-rows: repeat(3, auto);
+        text-align: center;
+    }
+
 }
         
         
         
 /* Large devices (laptops/desktops, 992px to 1199px) */
 @media only screen and (min-width: 992px) and (max-width: 1199px){
-    #homePageButton {
-        left: 38%;
-    }
+    
 
     h1 {
         font-size: 120%;
@@ -554,14 +644,7 @@ footer .fab:hover, footer i:hover{
         font-size: 100%;
     }
 
-    #createButton {
-        bottom: 48%;
-        width: 20%;
-        height: 4.5%;
-        line-height: 4.5%;
-        left: 1%;
-        padding: 3%;
-    }
+    
 
     #blogIndexPageTitleAndSearch button {
         bottom: 48%;

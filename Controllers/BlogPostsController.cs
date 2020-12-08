@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Blog.Helpers;
+using Blog.Models;
+using PagedList;
+using System;
 using System.Data;
 using System.Data.Entity;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.UI;
-using Blog.Helpers;
-using Blog.Models;
-using PagedList;
-using PagedList.Mvc;
 
 namespace Blog.Controllers
 {
@@ -20,16 +16,26 @@ namespace Blog.Controllers
     public class BlogPostsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-        
+
+        // GET: BlogPosts/MyView
+        public ActionResult MyView(int? page, string searchStr)
+        {
+            ViewBag.Search = searchStr;
+            var blogList = IndexSearch(searchStr);
+            int pageSize = 9; //specifies the number of posts per page
+            int pageNumber = (page ?? 1); //?? null coalesing operator
+            var model = blogList.ToPagedList(pageNumber, pageSize);
+            return View(model);
+        }
 
         // GET: BlogPosts
         public ActionResult Index(int? page, string searchStr)
         {
             ViewBag.Search = searchStr;
             var blogList = IndexSearch(searchStr);
-            int pageSize = 4; //specifies the number of posts per page
+            int pageSize = 6; //specifies the number of posts per page
             int pageNumber = (page ?? 1); //?? null coalesing operator
-            var model = blogList.ToPagedList(pageNumber, pageSize);           
+            var model = blogList.ToPagedList(pageNumber, pageSize);
             return View(model);
         }
 

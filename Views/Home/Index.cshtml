@@ -3,37 +3,47 @@
 @*@model IEnumerable<Blog.Models.BlogPost>*@
 
 <!-- Main Content -->
-    <div class="container-fluid">
-        <div class="row" id="homePageRow">
+<section id="myViewAllBlogPostSection">
+    <div class="container-fluid text-center myViewAllBlogPostGrid">
 
-            @foreach (var post in Model.Take(3))
+        <table>
+            @foreach (var item in Model.Take(3))
             {
-                <div class="col text-center homePageColumns">
-                    <div class="post-preview" id="homePagePostsWrapper">
-                        
-                        <a href=@Url.Action("Details", "BlogPosts", new { slug = post.Slug })>
-                            <img class="img-responsive" id="blogIndexImage" src="@post.MediaPath" alt="photo" />
-                        </a> 
-                        
-                            <h2>                                
-                                @post.Title
-                            </h2>
-                        
-                            <h3>
-                                @post.Abstract
-                            </h3>                        
-                        <p class="post-meta">
-                            Posted by Richard                            
-                            on @post.Created.ToString("MMM dd, yyyy")
+                <tr>
+                    <div class="myViewAllBlogPostSubGrid">
+
+                        <div id="myViewAllBlogPostSubGridImage">
+
+                            @if (item.MediaPath != null)
+                            {
+                                <a href=@Url.Action("Details", "BlogPosts", new { slug = item.Slug })>
+                                    <img class="img-responsive" id="blogIndexImage" src="@item.MediaPath" alt="photo" />
+                                </a>
+                            }
+                        </div>
+
+                        <div id="myViewAllBlogPostSubGridTitle">
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </div>
+
+                        <p id="myViewAllBlogPostSubGridCreated" class="post-meta">
+                            posted by Richard Knott on @item.Created.ToString("MM/dd/yyyy")
                         </p>
+
                     </div>
-                </div>
+
+                </tr>
+
+
             }
 
-            <hr>
-            <!-- Pager -->
-        </div>
+
+        </table>
+
         <button class="btn btn-primary" id="homePageButton">
             @Html.ActionLink("All Posts", "Index", "BlogPosts", null, new { @class = "colorBlack", id = "homePageLink" }) &rarr;
         </button>
+
     </div>
+
+</section>

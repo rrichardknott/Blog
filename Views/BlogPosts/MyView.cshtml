@@ -5,21 +5,9 @@
 @{
 
 }
-
-
-
 <div class="container-fluid" id="blogIndexPageTitleAndSearch">
-    <div class="blogPostIndexCreateSearchGrid">
-
-        <p>
-            @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
-            {
-                @Html.ActionLink("Create", "Create", null, new { @class = "btn btn-primary", id = "createButton" })
-            }
-        </p>
-
+    <div class="row">
         <h2 class="text-uppercase">All Posts</h2>
-
         @using (Html.BeginForm("Index", "BlogPosts", FormMethod.Get, htmlAttributes: new { @class = "form", id = "blogPostsIndexForm" }))
         {
             <div class="controls controls-row search-row" id="blogIndexSearchInputAndButtonRow">
@@ -29,12 +17,16 @@
                 </button>
             </div>
         }
-
     </div>
 </div>
 
 
-
+<p>
+    @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
+    {
+        @Html.ActionLink("Create", "Create", null, new { @class = "btn btn-primary", id = "createButton" })
+    }
+</p>
 
 <section id="myViewAllBlogPostSection">
     <div class="container-fluid text-center myViewAllBlogPostGrid">
@@ -45,12 +37,9 @@
                     <div class="myViewAllBlogPostSubGrid">
 
                         <div id="myViewAllBlogPostSubGridImage">
-
                             @if (item.MediaPath != null)
                             {
-                                <a href=@Url.Action("Details", "BlogPosts", new { slug = item.Slug })>
-                                    <img class="img-responsive" id="blogIndexImage" src="@item.MediaPath" alt="photo" />
-                                </a>
+                                <img class="img-responsive" id="blogIndexImage" src="@item.MediaPath" alt="photo" />
                             }
                         </div>
 
@@ -82,11 +71,10 @@
 
             }
         </table>
-        <div class="container">
-            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
-            @Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchStr = ViewBag.Search }))
-        </div>
     </div>
 </section>
 
-
+<div class="container">
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchStr = ViewBag.Search }))
+</div>
