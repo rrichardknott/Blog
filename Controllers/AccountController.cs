@@ -1,15 +1,13 @@
-﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
+﻿using Blog.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using Blog.Models;
+using System;
+using System.Linq;
 using System.Net.Mail;
+using System.Threading.Tasks;
+using System.Web;
+using System.Web.Mvc;
 
 namespace Blog.Controllers
 {
@@ -24,7 +22,7 @@ namespace Blog.Controllers
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -36,9 +34,9 @@ namespace Blog.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -59,14 +57,14 @@ namespace Blog.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
-                  ViewBag.ReturnUrl = returnUrl;
+            ViewBag.ReturnUrl = returnUrl;
 
-                  var placeHolder = new LoginViewModel();
-                  return View(placeHolder);
+            var model = new LoginViewModel();
+            return View(model);
 
-                 
 
-           
+
+
         }
 
         //
@@ -128,7 +126,7 @@ namespace Blog.Controllers
             // If a user enters incorrect codes for a specified amount of time then the user account 
             // will be locked out for a specified amount of time. 
             // You can configure the account lockout settings in IdentityConfig
-            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
+            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -147,8 +145,8 @@ namespace Blog.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-                  var placeHolder = new ExtendedRegisterViewModel();
-                  return View(placeHolder);
+            var placeHolder = new ExtendedRegisterViewModel();
+            return View(placeHolder);
         }
 
         //
@@ -176,12 +174,15 @@ namespace Blog.Controllers
                         var email = new MailMessage(from, model.Email)
                         {
                             Subject = "Confirm your email.",
-                            Body = $"Hello {model.FirstName}, please click <a href =\"" + callbackUrl + "\">here</a> to confirm your email address and complete your registration.",
+                            Body = $"Hello {model.FirstName}, please click <a href =\"" + callbackUrl + "\">here</a> to confirm your email address.",
                             IsBodyHtml = true
                         };
                         var svc = new EmailService();
                         await svc.SendAsync(email);
-
+                        ModelState.Clear();
+                        ViewBag.Success = "true";
+                        ViewBag.Message = "Successfully submitted.  Please check your email to complete your registration.";
+                        return View();
 
                     }
                     catch (Exception ex)
@@ -213,7 +214,15 @@ namespace Blog.Controllers
                 return View("Error");
             }
             var result = await UserManager.ConfirmEmailAsync(userId, code);
-            return View(result.Succeeded ? "ConfirmEmail" : "Error");
+            //return View(result.Succeeded ? "ConfirmEmail" : "Error");
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View("Error");
+            }
         }
 
         //

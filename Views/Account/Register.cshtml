@@ -3,6 +3,14 @@
     ViewBag.Title = "Register";
 }
 
+@if (ViewBag.Success == "true")
+{
+
+    <div class="container alert alert-success" role="alert">
+        @ViewBag.Message
+    </div>
+}
+
 
 <div class="container">
     <h2>@ViewBag.Title.</h2>
