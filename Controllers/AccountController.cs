@@ -170,7 +170,7 @@ namespace Blog.Controllers
                     var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code }, protocol: Request.Url.Scheme);
                     try
                     {
-                        var from = "Richlylynn Bug Tracker Admin<admin@RichardsBlog.com>";
+                        var from = "Richard's ASP.Net MVC Blog Admin<admin@RichardsBlog.com>";
                         var email = new MailMessage(from, model.Email)
                         {
                             Subject = "Confirm your email.",
@@ -246,8 +246,10 @@ namespace Blog.Controllers
                 var user = await UserManager.FindByNameAsync(model.Email);
                 if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
                 {
-                    // Don't reveal that the user does not exist or is not confirmed
-                    return View("ForgotPasswordConfirmation");
+                    //trigger modal if email not in db
+                    ViewBag.Message = "userisnull";
+                    ModelState.Clear();
+                    return View("Login");
                 }
 
                 // For more information on how to enable account confirmation and password reset please visit //go.microsoft.com/fwlink/?LinkID=320771 // Send an email with this link
@@ -257,7 +259,7 @@ namespace Blog.Controllers
 
                 try
                 {
-                    var from = "Bug Tracker<r.richardknott@gmail.com>";
+                    var from = "Richard's Blog<r.richardknott@gmail.com>";
 
                     var email = new MailMessage(from, model.Email)
                     {

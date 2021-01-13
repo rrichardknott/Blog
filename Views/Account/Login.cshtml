@@ -2,11 +2,33 @@
 @model LoginViewModel
 @{
     ViewBag.Title = "Log in";
-    }
+}
 
 
 <div class="container">
-     <h2>@ViewBag.Title</h2>
+
+    <!-- Button trigger modal -->
+    <button id="myButton" type="button" data-toggle="modal" data-target="#exampleModal"></button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Forgot Password</h5>
+                </div>
+                <div class="modal-body">
+                    <p>If the email you submitted exist in our database, you will receive instructions on how to reset your password.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <h2>@ViewBag.Title</h2>
     <div class="row">
         <div class="col-md-8">
             <section id="loginForm">
@@ -45,20 +67,31 @@
                             @Html.ActionLink("Register", "Register", null, new { @class = "btn btn-info smoothEdges", @id = "registerButton" })
 
                             @Html.ActionLink("Forgot password?", "ForgotPassword", null, new { @class = "btn btn-warning smoothEdges", @id = "forgotPasswordButton" })
-                        </div>                        
+                        </div>
                     </div>
-                    
+
                 }
             </section>
         </div>
         @*<div class="col-md-4">
-            <section id="socialLoginForm">
-                @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
-            </section>
-        </div>*@
+                <section id="socialLoginForm">
+                    @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+                </section>
+            </div>*@
     </div>
 </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <!--From AccountController/ForgotPassword. Show modal if email not in db-->
+    @if (ViewBag.Message == "userisnull")
+    {
+
+        <script type="text/javascript">
+                $(window).on('load', function () {
+                    $("#myButton").click();
+                });
+        </script>
+    }
+
 }

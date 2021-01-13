@@ -607,6 +607,11 @@ header.masthead{
 }
 
 /*Account/Forgot Password*/
+
+.container>#myButton {
+    display: none;
+}
+
 #forgotPasswordEmailLinkButton{
     position: relative;
     right: 1.5%;
